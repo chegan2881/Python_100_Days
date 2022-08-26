@@ -2,6 +2,7 @@
 ======
 
 ```Python
-Print ('Hello world') 
+Print ('Hello world') //Python
 
+```
 ## Day 1
