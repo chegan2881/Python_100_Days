@@ -62,9 +62,11 @@ print(IntX+IntY)
 
 ```
 
-### Math Operation
-加法 +
-减法 -
-乘法 *
-除法 /，用完除法后出来的都是Float
-指数运算 **
+### Math Operation PEMDAS
+加法 +<br>
+减法 -<br>
+乘法 *<br>
+除法 /，用完除法后出来的都是Float<br>
+指数运算 **<br>
+
+
