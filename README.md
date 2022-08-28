@@ -70,3 +70,23 @@ print(IntX+IntY)
 指数运算 **<br>
 
 
+```Python
+
+#作业2
+# 🚨 Don't change the code below 👇
+height = input("enter your height in m: ")
+weight = input("enter your weight in kg: ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+# print(type(height))
+# print(type(weight))
+H = float(height)
+W = float(weight)
+# print(type(H))
+# print(type(W))
+BMI =int(W/(H**2))
+# print(type(BMI))
+print(BMI)
+```
+
