@@ -46,11 +46,18 @@ two_digit_number = input("Type a two digit number: ")
 ####################################
 #Write your code below this line 👇
 
-X = int(two_digit_number[0])
-Y = int(two_digit_number[1])
-# print(type(X))
-# print(type(Y))
-print(X+Y)
+X = two_digit_number[0]
+Y = two_digit_number[1]
+print(type(X))
+print(type(Y))
+
+IntX= int(X)
+IntY = int(Y)
+
+print(type(IntX))
+print(type(IntY))
+
+print(IntX+IntY)
 
 
 
