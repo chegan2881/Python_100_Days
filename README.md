@@ -17,4 +17,12 @@ input("what is name of your pet?\n")
 print("Hello"[0])
 
 ```
+## Day 2
 
+```Python
+
+
+#在print函数中，显示打印内容某一位的字母，从0开始计算。
+print("Hello"[0])
+
+```
