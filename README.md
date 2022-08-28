@@ -38,6 +38,20 @@ String_Pet_name = str(Pet_name)
 print(type(String_Pet_name))
 print("Your pet name has " + String_Pet_name + " characters.")
 
+#作业1
+# 🚨 Don't change the code below 👇
+two_digit_number = input("Type a two digit number: ")
+# 🚨 Don't change the code above 👆
+
+####################################
+#Write your code below this line 👇
+
+X = int(two_digit_number[0])
+Y = int(two_digit_number[1])
+# print(type(X))
+# print(type(Y))
+print(X+Y)
+
 
 
 ```
