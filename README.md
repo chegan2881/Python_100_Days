@@ -63,4 +63,8 @@ print(IntX+IntY)
 ```
 
 ### Math Operation
-
+加法 +
+减法 -
+乘法 *
+除法 /，用完除法后出来的都是Float
+指数运算 **
