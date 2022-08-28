@@ -89,5 +89,16 @@ W = float(weight)
 BMI =int(W/(H**2))
 # print(type(BMI))
 print(BMI)
+
+
+
+#四舍五入用round
+print(round(8/3))
+#会显示3
+print(round(8/3,2))
+#会显示2.67
+print(8//3)
+# 会直接显示2，是整数
+
 ```
 
