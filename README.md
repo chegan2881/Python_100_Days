@@ -117,6 +117,21 @@ height = 1.8
 isWinning = True
 print(f"Your score is {score}, your height is {1.8} meters, you are winning is {isWinning}.")
 
+#作业3
+# 🚨 Don't change the code below 👇
+age = input("What is your current age?")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+yearleft = 90 - int(age)
+# print(yearleft)
+monthleft = yearleft*12
+weekleft = yearleft*52
+dayleft = yearleft*365
+
+print(f"You have {dayleft} days, {weekleft} weeks, and {monthleft} months left.")
+
 
 ```
 
