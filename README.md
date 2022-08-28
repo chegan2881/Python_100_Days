@@ -151,8 +151,10 @@ print(bill)
 print(tippercentage)
 print(numpeople)
 
-tip = round((bill*(1+tippercentage/100)/numpeople), 2)
-print(f"Each one should pay ${tip}.")
+#一种将整除数字强制保持小数后几位为0的办法。
+tip = (bill*(1+tippercentage/100)/numpeople)
+finaltip = "{:.2f}".format(tip)
+print(f"Each one should pay ${finaltip}.")
 
 ```
 
