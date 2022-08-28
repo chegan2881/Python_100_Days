@@ -152,7 +152,7 @@ print(tippercentage)
 print(numpeople)
 
 tip = round((bill*(1+tippercentage/100)/numpeople), 2)
-print(tip)
+print(f"Each one should pay ${tip}.")
 
 ```
 
