@@ -68,6 +68,7 @@ print(IntX+IntY)
 乘法 *<br>
 除法 /，用完除法后出来的都是Float<br>
 指数运算 **<br>
+四舍五入用round
 
 
 ```Python
