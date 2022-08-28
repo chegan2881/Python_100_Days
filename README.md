@@ -100,5 +100,23 @@ print(round(8/3,2))
 print(8//3)
 # 会直接显示2，是整数
 
+# 持续运算
+result = 4 / 2
+result /= 2
+print(result)
+
+score = 0
+score += 1  #等同于score = score + 1
+score += 2
+score -= 4
+print(score)
+
+#f-string
+score = 0
+height = 1.8
+isWinning = True
+print(f"Your score is {score}, your height is {1.8} meters, you are winning is {isWinning}.")
+
+
 ```
 
