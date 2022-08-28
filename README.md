@@ -28,6 +28,6 @@ print("Hello"[0])
 #Integer，整数
 #Float，浮点数，相当于小数
 #Boolean，布尔值，只有Ture和False。
-
+print(type(4))
 
 ```
