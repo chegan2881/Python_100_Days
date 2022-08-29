@@ -157,4 +157,18 @@ finaltip = "{:.2f}".format(tip)
 print(f"Each one should pay ${finaltip}.")
 
 ```
+## Day 3
+if和else<br>
+条件。<br>
+```Python
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? \n"))
+if height>= 120:
+  print("You can ride the rollercoaster!")
+else:
+  print("Sorry, you have to grow taller before you can ride.")
+  
+  
+```
+
 
