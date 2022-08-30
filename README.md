@@ -286,7 +286,7 @@ strY = str(y)
 
 combine = strX + strY
 score = int(combine)
-if score < 10 or score > 90:
+if (score < 10) or (score > 90):
     print(f"Your score is {score}, you go together like coke and mentos.")
 elif 40 < score < 50:
     print (f"Your score is {score}, you are alright together.")
