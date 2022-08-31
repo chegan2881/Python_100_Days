@@ -409,6 +409,10 @@ states_of_america.append("Shitland")
 
 print(states_of_america)
 
+# 在list后面增加list
+states_of_america.extend(["aaa", "bbb", "ccc"])
+
+print(states_of_america)
 
 ```
 
