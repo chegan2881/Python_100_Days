@@ -348,7 +348,7 @@ else:
 ```
 
 ## Day4
-随机<br>
+### 随机
 
 
 ```Python
@@ -389,3 +389,26 @@ elif number == 0:
     print("Tails")
     
 ```
+### List
+```Python
+# 储存的list会保存数据顺序
+states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut", "Massachusetts", "Maryland", "South Carolina", "New Hampshire", "Virginia", "New York", "North Carolina", "Rhode Island", "Vermont", "Kentucky", "Tennessee", "Ohio", "Louisiana", "Indiana", "Mississippi", "Illinois", "Alabama", "Maine", "Missouri", "Arkansas", "Michigan", "Florida", "Texas", "Iowa", "Wisconsin", "California", "Minnesota", "Oregon", "Kansas", "West Virginia", "Nevada", "Nebraska", "Colorado", "North Dakota", "South Dakota", "Montana", "Washington", "Idaho", "Wyoming", "Utah", "Oklahoma", "New Mexico", "Arizona", "Alaska", "Hawaii"]
+
+# print(states_of_america)
+# 打印某一位上的值
+print(states_of_america[12])
+# 方括号输入负数，倒着数
+print(states_of_america[-12])
+
+# 可以按照顺序更改序列中的某个值
+states_of_america[2] = "NJ"
+print(states_of_america)
+
+# 在序列后面增加
+states_of_america.append("Shitland")
+
+print(states_of_america)
+
+
+```
+
