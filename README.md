@@ -347,4 +347,45 @@ else:
 
 ```
 
+## Day4
+随机<br>
 
+
+```Python
+# 插入其它module里面的值
+import my_module
+print(my_module.pi)
+
+#导入某块“随机”
+import random
+
+#一个随机整数，1到10（含）
+random_integer = random.randint(1,10)
+print(random_integer)
+
+#一个随机浮点数(0,1) 0.0000到0.99999
+random_float = random.random()
+print(random_float)
+
+
+
+# 作业1
+#Remember to use the random module
+#Hint: Remember to import the random module here at the top of the file. 🎲
+import random	 
+# 🚨 Don't change the code below 👇
+test_seed = int(input("Create a seed number: "))
+random.seed(test_seed)
+ # 🚨 Don't change the code above 👆 It's only for testing your code.
+	 
+#Write the rest of your code below this line 👇
+
+number = random.randint(0,1)
+# print(number)
+
+if number == 1:
+    print("Heads")
+elif number == 0:
+    print("Tails")
+    
+```
