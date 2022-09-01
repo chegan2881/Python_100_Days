@@ -443,7 +443,17 @@ print(person_to_pay + " is going to buy the meal today!")
 
 # print(f"{person} is going to buy the meal today!")
 
+# 嵌套列表nested list
+# dirty_dozen = [
+#     "Strawberries", "Spinach", "Kale", "Nectarines", "Apples", "Grapes",
+#     "Peaches", "Cherries", "Pears", "Tomatoes", "Celery", "Potatoes"
+# ]
 
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vege = [
+    "Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+dirty_dozen = [fruits, vege]
+print(dirty_dozen)
 
 ```
 
