@@ -454,6 +454,10 @@ vege = [
     "Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
 dirty_dozen = [fruits, vege]
 print(dirty_dozen)
+# print嵌套列表总第几个列表的第几个值
+# print嵌套列表中第1个列表的第2个值
+print(dirty_dozen[0][1])
+
 
 ```
 
