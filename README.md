@@ -458,6 +458,42 @@ print(dirty_dozen)
 # print嵌套列表中第1个列表的第2个值
 print(dirty_dozen[0][1])
 
+# 作业3
+# 🚨 Don't change the code below 👇
+row1 = ["⬜️","️⬜️","️⬜️"]
+row2 = ["⬜️","⬜️","️⬜️"]
+row3 = ["⬜️️","⬜️️","⬜️️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+x = position[0]
+y = position[1]
+
+# print(type(x))
+# print(type(y))
+
+x_int = int(x)
+y_int = int(y)
+
+# print(type(x_int))
+# print(type(y_int))
+
+
+map[y_int-1][x_int-1] = 'X'
+
+
+
+#Write your code above this row 👆
+
+# 🚨 Don't change the code below 👇
+print(f"{row1}\n{row2}\n{row3}")
+
+
+
 
 ```
 
