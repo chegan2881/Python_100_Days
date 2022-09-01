@@ -414,5 +414,36 @@ states_of_america.extend(["aaa", "bbb", "ccc"])
 
 print(states_of_america)
 
+# 作业2
+
+import random
+
+# 🚨 Don't change the code below 👇
+test_seed = int(input("Create a seed number: "))
+random.seed(test_seed)
+
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+# to get total number of item in the list
+
+number_of_item = len(names)
+# print(number_of_item)
+random_choice = random.randint(0, number_of_item - 1)
+person_to_pay = names[random_choice]
+print(person_to_pay + " is going to buy the meal today!")
+
+# 用random.choice
+# person = random.choice(names)
+# # print(person)
+
+# print(f"{person} is going to buy the meal today!")
+
+
+
 ```
 
