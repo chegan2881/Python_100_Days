@@ -493,6 +493,61 @@ map[y_int-1][x_int-1] = 'X'
 print(f"{row1}\n{row2}\n{row3}")
 
 
+# Game:
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+#Write your code below this line 👇
+
+Human_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+
+if Human_choice == 0:
+  print(rock)
+elif Human_choice == 1:
+  print(paper)
+elif Human_choice == 2:
+  print(scissors)
+else:
+  print("You typed an invalid number, you lose!")
+
+import random
+
+game = [rock, paper, scissors]
+computer_choice = random.randint(0,2)
+
+# print(computer_choice)
+print("Computer chose:" + game[computer_choice])
+
+if (Human_choice == 0 and computer_choice == 2) or (Human_choice == 1 and computer_choice == 0) or (Human_choice == 2 and computer_choice == 1):
+  print("You win!")
+elif (Human_choice == 2 and computer_choice == 0) or (Human_choice == 1 and computer_choice == 2) or (Human_choice == 0 and computer_choice == 1):
+  print("You lose.")
+elif Human_choice == computer_choice:
+  print("It's a draw.")
 
 
 ```
