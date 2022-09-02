@@ -552,3 +552,19 @@ elif Human_choice == computer_choice:
 
 ```
 
+## Day 5
+
+```Python
+# loop 多次执行同一段代码
+# for loop 
+fruits = ["aaa", "bbb", "ccc"]
+for fruit in fruits:
+ # 注意缩进，缩进后是在loop中 
+  print(fruit)
+  print(fruit + " Pie")
+#在缩进外，只print一次
+print (fruits)
+
+
+```
+
