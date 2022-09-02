@@ -565,6 +565,33 @@ for fruit in fruits:
 #在缩进外，只print一次
 print (fruits)
 
+# 练习 1
+
+# 🚨 Don't change the code below 👇
+student_heights = input("Input a list of student heights ").split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# 🚨 Don't change the code above 👆
+
+
+#Write your code below this row 👇
+sum = 0
+for height in student_heights:
+  sum += height
+print(sum)
+
+number_of_student = 0
+for student in student_heights:
+  number_of_student += 1
+print(number_of_student)
+
+Mean = sum/number_of_student
+print(Mean)
+
+# mean = sum / len(student_heights)
+# # 整除情况下保留两位小数
+# finalmean = "{:.2f}".format(mean)
+# print(finalmean)
 
 ```
 
