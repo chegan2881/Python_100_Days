@@ -614,7 +614,17 @@ for score in student_scores:
 HS = str(highest_score)
 print("The highest score in the class is: " + HS)
 
+# range
+for number in range (1, 10): #不包括10
+  print(number)
 
+for number in range (1, 10, 3): # 1到10（不含）间隔3个数
+  print(number)
+# 1到100的和
+total = 0
+for number in range(1, 101):
+  total += number
+print(total)
 
 
 ```
