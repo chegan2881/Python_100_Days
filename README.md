@@ -626,6 +626,20 @@ for number in range(1, 101):
   total += number
 print(total)
 
+# 作业3，求1到100内偶数的和
 
+#Write your code below this row 👇
+
+sum = 0
+for n in range(2, 101, 2):
+    sum += n
+print(sum)
+
+# 第二种方法
+total = 0
+for n in range(1,101):
+    if n % 2 == 0:
+        total += n
+print(total)
 ```
 
