@@ -656,4 +656,20 @@ for n in range (1,101):
         print(n)
 
 ```
+## Day 6
+``` Python
+#Day 6
+# def定义新的函数，自带的为built-in function
 
+def my_function():
+  # Finally do this 
+  # Dothis
+  # Then do this
+  print ("Hello")
+  print ("Bye")
+  # Calling function 调用函数
+my_function()
+
+
+
+```
