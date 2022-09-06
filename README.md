@@ -670,6 +670,25 @@ def my_function():
   # Calling function 调用函数
 my_function()
 
+# Game 1
+def turn_around():
+    turn_left()
+    turn_left()
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+    
 
+
+for step in range(1,7):
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
 
 ```
