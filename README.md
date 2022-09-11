@@ -897,6 +897,13 @@ for y in chosen_word_list:
     print("Wrong")
 
 
+# Alternative method
+for letter in chosen_word:
+  if letter == guess:
+    print("Right")
+  else:
+    print("Wrong")
+    
 
 
 
