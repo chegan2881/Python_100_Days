@@ -865,7 +865,7 @@ while not at_goal():
 ## Day 7
 
 ```Python
-# Challenge 1
+# Hangman Game
 #Step 1 
 
 import random 
@@ -905,6 +905,58 @@ for letter in chosen_word:
   else:
     print("Wrong")
     
+#Step 2
+
+import random
+
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#TODO-1: - Create an empty List called display.
+#For each letter in the chosen_word, add a "_" to 'display'.
+#So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
+
+# 让所有猜的字母都转化成小写去和单词中的字母对比
+guess = input("Guess a letter: ").lower()
+
+# 创建空的下划线list
+underscore = []
+# 用for loop将下划线加入，数量是随机单词字母数量n，所以range是(1, n+1)
+for number in range(1, int(len(chosen_word)) + 1):
+    underscore.append("_")
+print(underscore)
+# list有n个元素，位置有第0位到第n-1位
+# print(len(underscore))
+
+#TODO-2: - Loop through each position in the chosen_word;
+#If the letter at that position matches 'guess' then reveal that letter in the display at that position.
+#e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].
+# for letter in chosen_word:
+#     if letter == guess:
+#         print("Right")
+#     else:
+#         print("Wrong")
+
+# 空List，把所选单词的字母都转化成list中的值
+chosen_word_list = []
+
+# 将所选单词的字母用for loop逐一加入list，从第0位到第n-1位
+for x in range(0, len(chosen_word)):
+    chosen_word_list.append(chosen_word[x])
+print(chosen_word_list)
+
+# 将所选单词字母组成的list的值，逐一与猜测字母对比，如果在第n位上相同，就把单词上这一位的字母换到下划线list之中。
+for n in range(0, len(chosen_word)):
+    if chosen_word[n] == guess:
+        underscore[n] = chosen_word[n]
+
+#TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+#Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
+
+print(underscore)
 
 
 
