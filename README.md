@@ -898,6 +898,7 @@ for y in chosen_word_list:
 
 
 # Alternative method
+# for loop如果是in list，就是检查list中所有值，如果是in string，就是检查string的每一位
 for letter in chosen_word:
   if letter == guess:
     print("Right")
