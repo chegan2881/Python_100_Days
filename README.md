@@ -991,7 +991,25 @@ while  '_' in display:
 if not '_' in display:
   print("You won!")
   
+# Method 2
+end_of_game = False
 
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+        #print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        if letter == guess:
+            display[position] = letter
+
+    print(display)
+
+    #Check if there are no more "_" left in 'display'. Then all letters have been guessed.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
 
 ```
 
