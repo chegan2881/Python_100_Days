@@ -994,7 +994,7 @@ if not '_' in display:
 # Method 2
 end_of_game = False
 
-while not end_of_game:
+while not end_of_game: # 或者用while end_of_game == False
     guess = input("Guess a letter: ").lower()
 
     #Check guessed letter
