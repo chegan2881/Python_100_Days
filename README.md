@@ -1317,11 +1317,39 @@ logo = '''
 |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                     __/ |                      
                    |___/    '''
-
-                                                                    
+                                                                 
                                                                     
 								    
 								    
 
 ```
+## Day 8
+
+```Python
+# start
+# Review: 
+# Create a function called greet(). 
+# Write 3 print statements inside the function.
+# Call the greet() function and run your code.
+
+def great():
+  print("A")
+  print("B")
+  print("C")
+
+great()
+
+def greet_with_name(name):
+  print(f"Hello {name}.")
+  print(f"How are you, {name}?")
+
+greet_with_name("Xian")
+# def my_function(something)
+# something = 123
+# something是parameter(the name of the data that's being passed in)，函数定义中的参数
+# 123是argument(actual value of the data)，函数调用时的实际参数
+
+
+```
+
 
