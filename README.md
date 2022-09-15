@@ -1349,6 +1349,14 @@ greet_with_name("Xian")
 # something是parameter(the name of the data that's being passed in)，函数定义中的参数
 # 123是argument(actual value of the data)，函数调用时的实际参数
 
+# function with more than 1 input
+def greet_with(name, location): 
+    print(f"Hello {name}.")
+    print(f"What is it like in {location}?")
+
+greet_with("Xian", "Nowhere")# positional argument
+greet_with(location = "Nowhere", name = "Xian" ) # Keyword Argument
+# greet_with(input("What's your name?"), "Nowhere")
 
 ```
 
