@@ -1358,6 +1358,28 @@ greet_with("Xian", "Nowhere")# positional argument
 greet_with(location = "Nowhere", name = "Xian" ) # Keyword Argument
 # greet_with(input("What's your name?"), "Nowhere")
 
+
+# paint
+#Write your code below this line 👇
+
+def paint_calc(height, width, cover):
+  cans = round((int(height) * int(width) / cover)+0.5)
+  print(cans)
+
+
+#Write your code above this line 👆
+# Define a function called paint_calc() so that the code below works.   
+
+# 🚨 Don't change the code below 👇
+test_h = int(input("Height of wall: "))
+test_w = int(input("Width of wall: "))
+coverage = 5
+paint_calc(height=test_h, width=test_w, cover=coverage)
+
+
+
+
+
 ```
 
 
