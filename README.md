@@ -1477,6 +1477,40 @@ elif direction == "decode":
   decrypt(cipher_text=text, shift_amount=shift)
 
 
+# Caeser cipher Step 3
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+#TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar(). 
+def caesar(plain_text, shift_amount, direction_choice):
+  # if direction == "decode":
+  #   shift_amount *= -1
+  #   print(shift_amount)
+  alt_text=""
+  for letter in plain_text:
+    position = alphabet.index(letter) # 查找输入文本中字母的位置
+    real_shift = shift_amount % 26    # 变化输入的转换值，除以26得出余数
+    if direction_choice == "encode": #如果是encode，加上真正的转换值
+      new_position = position+real_shift 
+      if new_position > 25: # 检查是否大于25，大于则减去26
+        new_position -= 26   
+       
+    if direction_choice == "decode":
+      new_position = position-real_shift
+      if new_position < 0:
+        new_position += 26
+    alt_text += alphabet[new_position]
+  print(f"The {direction_choice}d text is {alt_text}.")    
+
+
+    #TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
+
+caesar(plain_text=text, shift_amount=shift, direction_choice=direction)
+
+
 
 ```
 
