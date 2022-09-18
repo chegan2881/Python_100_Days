@@ -1189,7 +1189,7 @@ while not end_of_game:
 #Step 5 Angela's Method
 
 import random
-from replit import clear()
+from replit import clear
 
 #TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
 #Delete this line: word_list = ["ardvark", "baboon", "camel"]
