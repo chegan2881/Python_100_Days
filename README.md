@@ -1743,7 +1743,36 @@ add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
 print(travel_log)
 
 
+```
 
+### Blind Auction
+```Python
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+from art import logo
+print(logo)
 
+game = True
+auction={}
+
+while game:
+    name = input("What's your name? ")
+    bid = int(input("What's your bid? $"))
+    auction[name]=bid
+    game_continue = input("Are there any other bidders? Type 'yes' or 'no'.").lower()
+    if game_continue == "no":
+        game = False
+    else:
+      clear()
+
+highest = 0      
+for key in auction:
+    if auction[key] > highest:
+        highest = auction[key]
+        name_highest = key
+
+print(f"The winner is {name_highest} with a bid of ${highest}.")
+       
+# print(auction)
 
 ```
