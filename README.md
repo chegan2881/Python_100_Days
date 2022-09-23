@@ -1817,3 +1817,21 @@ https://www.udemy.com/course/100-days-of-code/learn/lecture/19279420#questions/1
 """
 
 ```
+
+## Function with Outputs
+```Python
+# function with Outpus
+def format_name(f_name, l_name):
+  formated_f=f_name.title()
+  formated_l=l_name.title()
+  # print(f"{formated_f} {formated_l}")
+  return f"{formated_f} {formated_l}"
+# formated_string = format_name("xuan", "CHEN")
+# print(formated_string)
+
+print(format_name("xuan", "CHEN"))
+
+output = len("Angela") # replace where function was called
+
+
+```
