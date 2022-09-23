@@ -1871,6 +1871,8 @@ def format_name(f_name, l_name):
 ### Exercise: Days in month
 ```Python
 def is_leap(year):
+    #docstring
+    """to figure out if the year input is a leap year"""
     if year % 4 == 0:
         if year % 100 == 0:
             if year % 400 == 0:
