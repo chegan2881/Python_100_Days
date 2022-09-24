@@ -1937,14 +1937,14 @@ answer = ""
 
 while calculate:
     if answer == "":
-        num1 = int(input("What's the 1st number?: "))
+        num1 = float(input("What's the 1st number?: "))
     else:
         num1 = answer
     for symbol in operations:
       print(symbol)
     operation_symbol = input("Pick an operation from the line above: ")
     
-    num2 = int(input("What's the next number?: "))
+    num2 = float(input("What's the next number?: "))
       
     calculation_function = operations[operation_symbol] 
     # 让一个新的function等于选定的运算function，然后再在括号里放入需要计算的数值
