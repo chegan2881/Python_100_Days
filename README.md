@@ -2343,3 +2343,127 @@ while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y"
 
 
 ```
+
+## Day 12 Scope
+### Start code
+```Python
+################### Scope ####################
+
+enemies = 1
+
+def increase_enemies():
+    enemies = 2
+    print(f"enemies inside function: {enemies}")
+
+increase_enemies()
+print(f"enemies outside function: {enemies}")
+
+# Local Scope
+
+def drink_potion():
+    potion_strength = 2
+    print(potion_strength)
+
+drink_potion()
+print(potion_strength)
+
+# Global Scope
+player_health = 10
+
+def game():
+    def drink_potion():
+        potion_strength = 2
+        print(player_health)
+
+    drink_potion()
+
+print(player_health)
+
+# There is no Block Scope
+
+game_level = 3
+
+def create_enemy():
+    enemies = ["Skeleton", "Zombie", "Alien"]
+    if game_level < 5:
+        new_enemy = enemies[0]
+
+    print(new_enemy)
+
+
+# Modifying Global Scope
+
+enemies = 1
+
+def increase_enemies():
+    print(f"enemies inside function: {enemies}")
+    return enemies + 1
+
+enemies = increase_enemies()
+print(f"enemies outside function: {enemies}")
+
+#Global Constants
+
+PI = 3.14159
+URL = "https://www.google.com"
+TWITTER_HANDLE = "@yu_angela"
+
+
+```
+
+
+### Guess the number
+
+```Python
+
+from art import logo
+from replit import clear
+import random
+
+# Welcom to the Number Guessing Game!
+# I'm thinking of a number between 1 and 100.
+# Choose a difficulty. Type 'easy' and 'hard':
+# You have X attempts remaining to guess the number.
+# Make a guess: XX
+# Too high.
+# Too low.
+# Guess again
+# You've run out of guess, you lose.
+# This repl has exited, run again?
+# You got it! The answer was XX.
+
+guess_time = 0
+game = True
+chosen_number = random.randint(1,100)
+print(logo)
+
+level = input("Choose a difficulty. Type 'easy' and 'hard': ")
+if level == "easy":
+  guess_time = 10
+elif level == "hard":
+  guess_time =5
+
+def compare(chosen_number, guess):
+  global guess_time
+  global game
+  if guess == chosen_number:
+    game = False
+    return f"You got it! The answer was {chosen_number}"
+  elif guess > chosen_number:
+    guess_time -= 1
+    return "Too high."
+  elif guess < chosen_number:
+    guess_time -= 1
+    return "Too low."
+
+
+while guess_time > 0 and game:
+  print(f"You have {guess_time} attempts remaining to guess the number.")
+  guess = int(input("Make a guess: "))
+  print(compare(chosen_number, guess))
+if guess_time == 0:
+  print("You've run out of guess, you lose.")
+
+
+```
+
