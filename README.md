@@ -2524,3 +2524,72 @@ def game():
 game()
 
 ```
+
+## Day 13 Higher Lower
+### My Code
+
+```Python
+import random
+from replit import clear
+from art import logo
+from art import vs
+from game_data import data
+
+#Step 1：进入游戏
+#Step 2：随机从dictionary里选两个人
+#Step 3：选一个人
+#Step 4：如果被选的少，不加分，结束游戏。
+#Step 5：如果被选的多，加1分
+#Step 6：抽选新的人，与上一轮第二个比较
+#Step 7：重复第四步
+
+# for thing in data:
+# 	print(thing)
+
+score = 0
+game_continue = True
+
+
+def compare(number_a, number_b):
+    """compare follower's number of A and B"""
+    choice = input("Who has more followers? Type 'A' or 'B': ").lower()
+    if choice == 'a' and number_a > number_b:
+        return True
+    elif choice == 'b' and number_a < number_b:
+        return True
+    else:
+        return False
+
+
+option_a = random.choice(data)
+option_b = random.choice(data)
+
+print(logo)
+print(
+    f"Compare A: {option_a['name']}, a {option_a['description']}, from {option_a['country']}."
+)
+print(vs)
+print(
+    f"Against B: {option_b['name']}, a {option_b['description']}, from {option_b['country']}."
+)
+
+while game_continue:
+	if compare(option_a['follower_count'], option_b['follower_count']):
+		clear()
+		print(logo)	
+		score += 1
+		print(f"You're right. Current score: {score}")
+		option_a = option_b
+		option_b = random.choice(data)
+		print(f"Compare A: {option_a['name']}, a {option_a['description']}, from {option_a['country']}.")
+		print(vs)
+		print(f"Against B: {option_b['name']}, a {option_b['description']}, from {option_b['country']}.")
+	
+	else:
+		clear()
+		print(logo)
+		print(f"Sorry, that's wrong. Final score: {score}")
+		game_continue = False
+
+
+```
