@@ -2593,3 +2593,90 @@ while game_continue:
 
 
 ```
+### Angela's method
+```Python
+# Generate a random account from the game data.
+
+# Format account data into printable format.
+
+# Ask user for a guess.
+
+# Check if user is correct.
+## Get follower count.
+## If Statement
+
+# Feedback.
+
+# Score Keeping.
+
+# Make game repeatable.
+
+# Make B become the next A.
+
+# Add art.
+
+# Clear screen between rounds.
+
+from art import logo, vs
+from game_data import data
+import random
+from replit import clear
+
+
+def get_random_account():
+	'''Get data from random account'''
+	return random.choice(data)
+
+
+def format_data(account):
+	'''Format account in to printable format: name description and country '''
+	name = account["name"]
+	description = account["description"]
+	country = account["country"]
+	return f"{name}, a {description}, from {country}"
+
+
+def check_answer(guess, a_followers, b_followers):
+	'''compare followers and return True of False'''
+	if a_followers > b_followers:
+		return guess == 'a'
+	elif b_followers > a_followers:
+		return guess == 'b'
+
+def game():
+	print(logo)
+	score = 0
+	game_continue = True
+	account_a = get_random_account()
+	account_b = get_random_account()
+
+	while game_continue:
+		account_a = account_b
+		account_b = get_random_account()
+
+		while account_a == account_b:
+			account_b = get_random_account()
+
+		print(f"Compare A: {format_data(account_a)}.")
+		print(vs)
+		print(f"Against B: {format_data(account_b)}.")
+
+		a_or_b = input("Whos has more followers? Tyep 'A' or 'B': ").lower()
+		a_follower = account_a["follower_count"]
+		b_follower = account_b["follower_count"]
+		is_correct = check_answer(a_or_b, a_follower, b_follower)
+
+		clear()
+		print(logo)
+		if is_correct:
+			score += 1
+			print(f"You're right! Current score: {score}.")
+		else:
+			game_continue = False
+			print(f"Sorry, that's wrong. Final score: {score}.")
+
+
+game()
+
+
+```
