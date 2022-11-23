@@ -2668,6 +2668,7 @@ def game():
 
 		clear()
 		print(logo)
+		
 		if is_correct:
 			score += 1
 			print(f"You're right! Current score: {score}.")
@@ -2677,6 +2678,217 @@ def game():
 
 
 game()
+
+
+```
+
+## Day 15
+### My code of Project of Coffee Machine
+``` Python
+# TODO: Main Goal, to set up a digital coffee machine
+# TODO 1: ask what you like?
+# TODO 2: turn off machine
+# TODO 3: print report
+# TODO 4: check resources sufficient
+# TODO 5: process coin
+# TODO 6: check transaction and refund
+# TODO 7: make coffee
+
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "milk": 0,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+# What would you like? (espresso/latte/cappuccino):
+# Please insert coin.
+# how many quarters?:
+# how many dimes?:
+# how many nickles?:
+# how many pennies?:
+# Here is $X.XX in change.
+# here is your XXX 🥐. Enjoy!
+# Import "report": water: XXml, milk: XXml, coffee: XXg, money: $0
+# Sorry, that's not enough money. Money refunded.
+# Sorry, there is not enough XX.
+# Here is your latte. Enjoy!
+
+water_remain = resources["water"]
+milk_remain = resources["milk"]
+coffee_remain = resources["coffee"]
+
+machine_working = True
+total_dollar = 0
+
+
+def report_code(resources_remaining, dollar_inside):
+    """a report to show the current resource values"""
+    return f"""
+    Water: {resources_remaining['water']}ml
+    Milk: {resources_remaining['milk']}ml
+    Coffee: {resources_remaining['coffee']}g
+    Money: ${dollar_inside}
+"""
+
+
+def calculate_inserted():
+    """to calculate amount of money inserted"""
+    print("Please insert coin.")
+    quarter = float(input("How many quarters?:"))
+    dime = float(input("How many dimes?:"))
+    nickle = float(input("How many nickles?:"))
+    penny = float(input("How many pennies?:"))
+    return round(quarter*0.25 + dime*0.1 + nickle*0.05 + penny*0.01, 2)
+
+
+while machine_working:
+    coffee_order = input("What would you like? (espresso/latte/cappuccino):").lower()
+    if coffee_order == "off":
+        machine_working = False
+    elif coffee_order == "report":
+        print(report_code(resources, total_dollar))
+    elif coffee_order == "espresso" or "latte" or "cappuccino":
+        if water_remain < MENU[coffee_order]["ingredients"]["water"]:
+            print("Sorry, there is not enough water.")
+            # machine_working = False
+        else:
+            charge = float(calculate_inserted() - MENU[coffee_order]["cost"])
+            if charge < 0:
+                print("Sorry, that's not enough money. Money refunded.")
+            else:
+                print(f"Here is your {coffee_order}☕.Enjoy!")
+                if charge > 0:
+                    print(f"Here is ${charge} in change.")
+                water_remain -= MENU[coffee_order]["ingredients"]["water"]
+                milk_remain -= MENU[coffee_order]["ingredients"]["milk"]
+                coffee_remain -= MENU[coffee_order]["ingredients"]["coffee"]
+                total_dollar += MENU[coffee_order]["cost"]
+                # print(water_remain)
+                # print(milk_remain)
+                # print(coffee_remain)
+                # print(total_dollar)
+
+```
+### Angela's code of coffee machine
+
+```Python
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+profit = 0
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+
+def is_resource_sufficient(order_ingredients):
+    """Returns True when order can be made, False if ingredients are insufficient."""
+    for item in order_ingredients:
+        if order_ingredients[item] > resources[item]:
+            print(f"​Sorry there is not enough {item}.")
+            return False
+    return True
+
+
+def process_coins():
+    """Returns the total calculated from coins inserted."""
+    print("Please insert coins.")
+    total = int(input("how many quarters?: ")) * 0.25
+    total += int(input("how many dimes?: ")) * 0.1
+    total += int(input("how many nickles?: ")) * 0.05
+    total += int(input("how many pennies?: ")) * 0.01
+    return total
+
+
+def is_transaction_successful(money_received, drink_cost):
+    """Return True when the payment is accepted, or False if money is insufficient."""
+    if money_received >= drink_cost:
+        change = round(money_received - drink_cost, 2)
+        print(f"Here is ${change} in change.")
+        global profit
+        profit += drink_cost
+        return True
+    else:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
+
+
+def make_coffee(drink_name, order_ingredients):
+    """Deduct the required ingredients from the resources."""
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print(f"Here is your {drink_name} ☕️. Enjoy!")
+
+
+is_on = True
+
+while is_on:
+    choice = input("​What would you like? (espresso/latte/cappuccino): ")
+    if choice == "off":
+        is_on = False
+    elif choice == "report":
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${profit}")
+    else:
+        drink = MENU[choice]
+        if is_resource_sufficient(drink["ingredients"]):
+            payment = process_coins()
+            if is_transaction_successful(payment, drink["cost"]):
+                make_coffee(choice, drink["ingredients"])
 
 
 ```
