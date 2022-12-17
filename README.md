@@ -3058,4 +3058,284 @@ class MoneyMachine:
 
 ```
 
+## Day 17
 
+### Start
+```Python 
+class User:
+
+    def __init__(self, user_id, username):
+        self.id = user_id
+        self.username = username
+        self.followers = 0
+        self.following = 0
+
+    def follow(self, user): # 本账号去关注一个user，user的粉丝+1，本账号关注的账号数+1
+        user.followers += 1
+        self.following += 1
+
+
+user_1 = User("001", "Apple")
+
+# print(user_1.id)
+# print(user_1.username)
+# print(user_1.followers)
+
+user_2 = User("002", "Banana")
+
+user_1.follow(user_2)
+print(user_1.followers)
+print(user_1.following)
+print(user_2.followers)
+print(user_2.following)
+
+```
+
+### Quiz Game
+
+main.py
+
+```Python
+from question_model import Question
+from data import question_data
+from quiz_brain import QuizBrain
+
+
+question_bank = []
+
+for unit in question_data:
+    question_text = unit["text"]
+    question_answer = unit["answer"]
+    new_q = Question(question_text, question_answer)
+    question_bank.append(new_q)
+
+# print(question_bank)
+# print(question_bank[0].answer)
+
+quiz = QuizBrain(question_bank)
+
+while quiz.still_have_question():
+    quiz.next_question()
+
+print("You've completed the quiz.'")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
+
+```
+
+data.py
+```Python
+question_data = [
+    {"text": "A slug's blood is green.", "answer": "True"},
+    {"text": "The loudest animal is the African Elephant.", "answer": "False"},
+    {"text": "Approximately one quarter of human bones are in the feet.", "answer": "True"},
+    {"text": "The total surface area of a human lungs is the size of a football pitch.", "answer": "True"},
+    {"text": "In West Virginia, USA, if you accidentally hit an animal with your car, "
+             "you are free to take it home to eat.", "answer": "True"},
+    {"text": "In London, UK, if you happen to die in the House of Parliament, you are entitled to a state funeral.",
+     "answer": "False"},
+    {"text": "It is illegal to pee in the Ocean in Portugal.", "answer": "True"},
+    {"text": "You can lead a cow down stairs but not up stairs.", "answer": "False"},
+    {"text": "Google was originally called 'Backrub'.", "answer": "True"},
+    {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
+    {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
+    {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
+]
+
+```
+
+
+question_model.py
+```Python
+class Question:
+
+    def __init__(self, text, answer):
+        self.text = text
+        self.answer = answer
+
+```
+
+quiz_brain.py
+```Python
+# attributes:
+# question_number = 0
+# question_list
+# method:
+# next_question()
+
+
+class QuizBrain:
+
+    def __init__(self, q_list):  # 录入属性
+        self.question_number = 0
+        self.question_list = q_list
+        self.score = 0
+        # QuizBrain(question_bank)，让录入的问题清单等于q_list等于question_list
+
+    def still_have_question(self):
+        return self.question_number < len(self.question_list)
+
+    def next_question(self):
+        current_question = self.question_list[self.question_number]
+        self.question_number += 1
+        user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
+        # self.question_number是问题序号
+        # current_question.text，是question_bank里的object，显示text属性
+        self.check_answer(user_answer, current_question.answer)
+
+    def check_answer(self, user_answer, correct_answer):
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
+            print("You got it right!")
+        else:
+            print("That's wrong")
+        print(f"The correct answer was: {correct_answer}.")
+        print(f"Your current score is: {self.score}/{self.question_number}")
+        print("\n")
+
+
+```
+
+## Day 18
+### Start
+```Python
+import turtle as t
+import random as r
+
+tim = t.Turtle()
+tim.shape("turtle")
+tim.pensize(1)
+tim.speed(0)
+t.colormode(255)
+
+
+def random_color():
+    random_r = r.randint(0, 255)
+    random_g = r.randint(0, 255)
+    random_b = r.randint(0, 255)
+    random_rgb = (random_r, random_g, random_b)
+    return random_rgb
+
+
+# 画多边形
+# def draw_shape(num_side):
+#     angle = 360/ num_side
+#     for num in range(num_side):
+#         tim.fd(100)
+#         tim.rt(angle)
+
+
+# for shape_side_num in range(3, 11):
+#     tim.color(random_color())
+#     draw_shape(shape_side_num)
+
+# 完全随机运动
+# for num in range(100):
+#     degree = r.randint(0, 360)
+#     tim.color(random_color())
+#     tim.lt(degree)
+#     tim.fd(20)
+
+# Angela的随机运动
+# directions = [0, 90, 180, 270]
+#
+# for num in range(200):
+#     tim.fd(20)
+#     tim.setheading(r.choice(directions))
+
+# 画螺线图Spirograph
+# for degree in range(36):
+#     tim.color(random_color())
+#     tim.circle(110)
+#     tim.rt(10)
+
+def draw_spirograph(size_of_gap):
+    for num in range(int(360 / size_of_gap)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gap)
+# turtle.heading()
+# Return the turtle’s current heading
+
+
+draw_spirograph(10)
+
+
+screen = t.Screen()
+screen.exitonclick()
+
+```
+### Spot painting
+```Python
+import random
+import turtle
+
+import colorgram
+from turtle import Turtle, Screen
+
+colors = colorgram.extract('spot.jpg', 35)
+
+print(colors)
+
+
+# My method
+# def extract_rgb():
+#     rgb_list = []
+#     for num in range(0, 35):
+#         rgb = colors[num].rgb
+#         rgb_list.append(rgb)
+#     return rgb_list
+#
+#
+# extracted_rgb = extract_rgb()
+# print(extracted_rgb)
+#
+# tim = Turtle()
+# turtle.colormode(255)
+# tim.color(extracted_rgb[9])
+
+
+# Angela's method
+rgb_colors = []
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    rgb_colors.append(new_color)
+
+tim = Turtle()
+turtle.colormode(255)
+tim.color(rgb_colors[10])
+print(rgb_colors)
+
+tim.speed(0)
+tim.penup()
+tim.goto(-200, -200)
+
+# for num1 in range(10):
+#     tim.dot(20, random.choice(rgb_colors))
+#     for num2 in range(10):
+#         tim.fd(50)
+#         tim.dot(20, random.choice(rgb_colors))
+#     tim.setheading(90)
+#     tim.fd(50)
+#     tim.setheading(180)
+#     tim.fd(500)
+#     tim.setheading(0)
+
+num_of_dots = 100
+for dot_count in range(1, num_of_dots+1):
+    tim.dot(20, random.choice(rgb_colors))
+    tim.fd(50)
+    if dot_count % 10 == 0:
+        tim.setheading(90)
+        tim.fd(50)
+        tim.setheading(180)
+        tim.fd(500)
+        tim.setheading(0)
+
+
+screen = Screen()
+screen.exitonclick()
+
+```
